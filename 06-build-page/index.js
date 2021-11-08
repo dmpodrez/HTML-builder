@@ -70,7 +70,7 @@ fs.readdir(textFile, { withFileTypes: true }, (err, files) => {
   fs.mkdir("06-build-page/project-dist/assets", { recursive: true }, (err) => {
     if (err) throw err;
   });
-  const textFile = path.join(__dirname, "project-dist/assets");
+  const textFile2 = path.join(__dirname, "project-dist/assets");
   files.forEach((el) => {
     recursive(el);
     function recursive(value) {
@@ -78,7 +78,7 @@ fs.readdir(textFile, { withFileTypes: true }, (err, files) => {
         fs.readFile(`${textFile}/${el.name}/${value.name}`, "utf-8", (err, data) => {
           if (err) throw err;
           else {
-            fs.writeFile(`${textFile}/${el.name}/${value.name}`, data, "utf-8",
+            fs.writeFile(`${textFile2}/${el.name}/${value.name}`, data, "utf-8",
               (err) => {
                 if (err) throw err;
               }
@@ -94,7 +94,7 @@ fs.readdir(textFile, { withFileTypes: true }, (err, files) => {
         const textFile3 = path.join(__dirname, `assets/${value.name}`);
         fs.readdir(textFile3, { withFileTypes: true }, (err, data) => {
           if (err) throw err;
-          const textFile = path.join(__dirname,`project-dist/assets/${value.name}`);
+          const textFile2 = path.join(__dirname,`project-dist/assets/${value.name}`);
           data.forEach((elem) => {
             recursive(elem);
           });
